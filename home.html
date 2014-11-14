@@ -1,0 +1,15 @@
+	<div class="container">
+
+		<div class="jumbotron">
+
+			<h1>{{websiteHeader}}</h1>
+			<p>{{websiteTitle}}</p>
+
+			<ul class="nav nav-tabs nav-justified navbar-inverse" role="tablist">
+
+				<li role="presentation" class="active"><a href="">Home</a></li>
+				<li role="presentation" ng-repeat="navdesc in navbar"><a href="{{navdesc.url}}">{{navdesc.name}}</a></li>
+			</ul>
+
+	   </div>
+	</div>

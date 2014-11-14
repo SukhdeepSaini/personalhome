@@ -1,0 +1,34 @@
+<div class="container">
+	<div class="jumbotron">
+		<h2>{{updatedRecipeName}}</h2>
+	</div>
+	<div class="row">
+
+		<div class="col-md-4">
+			<img class="thumbnail" ng-src="{{recipeLargeImage}}">
+		</div>
+		<div class="col-md-8">
+			<ul class="list-group">
+				<li ng-repeat="ingredient in ingredients track by $index" class="list-group-item">{{ingredient}}</li>
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<span>Course : </span>{{course}}
+		</div>
+		<div class="col-md-4">
+			<span>Rating : </span>{{rating}}
+		</div>
+		<div class="col-md-4">
+			<span>Prepratation Time : </span>{{prepratationTime}}
+		</div>				
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-4">
+			<a href="#" class="btn btn-success">Read Full Directions On Yummly</a>
+		</div>
+	</div>
+	<h2 ng-click="navigateBack()" class="btn btn-danger">Back to Results</h2>
+</div>
