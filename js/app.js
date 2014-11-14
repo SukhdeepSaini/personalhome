@@ -16,6 +16,7 @@ myWeb.controller('NavbarController',function($scope){
 
 });
 
+//handle backward navigation
 myWeb.controller('ProjectsController',function($scope,$http){
 
     $scope.projectHeader = "Projects";
@@ -27,7 +28,10 @@ myWeb.controller('ProjectsController',function($scope,$http){
         {
             return; //Provide a better error alert
         }
-    	var parameterizedQuery = 'http://api.yummly.com/v1/api/recipes?_app_id=222e8fca&_app_key=9e9a3459d35a5b4918595200eb4f7d4b&q='+ searhCriteria +'&requirePictures=true'
+
+        $scope.query = searhCriteria;
+        var search = $scope.query;
+    	var parameterizedQuery = 'http://api.yummly.com/v1/api/recipes?_app_id=222e8fca&_app_key=9e9a3459d35a5b4918595200eb4f7d4b&q='+ search +'&requirePictures=true'
     	$http.get(parameterizedQuery).success(function(data,status, headers, config){
 
     		$scope.queryResult = data;
@@ -69,6 +73,8 @@ myWeb.controller('RecipeDetailCtrl',function($scope, $routeParams,$http) {
     	$scope.rating = data.rating;
     	$scope.prepratationTime = data.totalTime;
     	$scope.course = data.attributes.course[0];
+        $scope.recipeSourceUrl = data.source.sourceRecipeUrl;
+        console.log($scope.recipeSourceUrl);
     	console.log(data.images[0].hostedLargeUrl);
     	console.log(ingredients);  //Ingredients information
     	console.log(data);  // All Data
@@ -79,12 +85,6 @@ myWeb.controller('RecipeDetailCtrl',function($scope, $routeParams,$http) {
 
     		window.history.back();  //not working for me , the data is not showing
     	}
-
-
-    	/*
-    	<a href='http://www.yummly.com/recipe/Chicken-Caesar-Pita-548482'>Chicken Caesar Pita recipe</a> 
-    	information powered by <img alt='Yummly' src='http://static.yummly.com/api-logo.png'/>
-    	*/
     });
   });
 
