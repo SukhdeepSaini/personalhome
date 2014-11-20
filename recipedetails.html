@@ -1,0 +1,50 @@
+<div class="container">
+	<div class="jumbotron">
+		<h2>{{updatedRecipeName}}</h2>
+	</div>
+	<ol class="breadcrumb">
+		 <li><a href="/">Home</a></li>
+		 <li><a href="#/projects">Projects</a></li>
+		 <li><a href="#/recipes">Recipe Search</a></li>
+		 <li class="active">Recipe Details</li>
+	</ol>
+	<div class="row">
+
+		<div class="col-md-4">
+			<img class="thumbnail" ng-src="{{recipeLargeImage}}">
+		</div>
+		<div class="col-md-8">
+			<ul class="list-group">
+				<li ng-repeat="ingredient in ingredients track by $index" class="list-group-item">{{ingredient}}</li>
+			</ul>
+		</div>
+	</div>
+	<div class="row jumbotron">
+		<div class="col-md-2">
+			<p class="text-muted">Ingredients</p>
+			<h2 class="text-warning">{{ingredients.length}}</h2>
+		</div>
+		<div class="col-md-3">
+			<p class="text-muted">Course</p>
+			<h2 class="text-warning">{{course}}</h2>
+		</div>
+		<div class="col-md-3">
+			<p class="text-muted">Cuisine</p>
+			<h2 class="text-warning">{{cuisine}}</h2>
+		</div>
+		<div class="col-md-2">
+			<p class="text-muted">Rating</p>
+			<h2 class="text-warning">{{rating}}</h2>
+		</div>
+		<div class="col-md-2">
+			<p class="text-muted">Directions</p>
+			<h2 class="text-warning">{{prepratationTime}}</h2>
+		</div>				
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-4">
+			<a href="{{recipeSourceUrl}}" class="btn btn-primary" target="_blank">Read Full Directions On this recipe</a>
+		</div>
+	</div>
+	<!--<h2 ng-click="navigateBack()" class="btn btn-danger">Back to Results</h2>-->
+</div>

@@ -1,0 +1,27 @@
+textarea
+{
+	max-width: 100%;
+	/*To Restrict the width of Textarea so that it should not go beyong form length*/
+}
+
+p
+{
+	text-align: justify;
+}
+
+img
+{
+	max-height: 100%;
+	max-width: 100%;
+}
+
+footer img
+{
+	width: 50px;
+	height: 50px;
+}
+
+ol
+{
+	display: inline-block;
+}
