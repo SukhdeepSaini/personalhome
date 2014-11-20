@@ -1,4 +1,4 @@
-	<div class="container">
+<div class="container">
 
 		<div class="jumbotron">
 
@@ -6,10 +6,75 @@
 			<p>{{websiteTitle}}</p>
 
 			<ul class="nav nav-tabs nav-justified navbar-inverse" role="tablist">
-
 				<li role="presentation" class="active"><a href="">Home</a></li>
 				<li role="presentation" ng-repeat="navdesc in navbar"><a href="{{navdesc.url}}">{{navdesc.name}}</a></li>
+				<li role="presentation"><a data-toggle="modal" data-target="#ContactMeModal">Contact</a></li>
 			</ul>
-
 	   </div>
-	</div>
+
+      <div class"row">
+        <div class="col-md-7">
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+          </p>
+        </div>
+        <div class="col-md-5">
+            <img src="images/me.jpg" class="thumbnail">
+        </div>
+      </div>
+
+        <footer>
+          <div class="row">
+            <div class="col-md-4 shadedback">
+              <img src="images/fb.jpeg">&nbsp&nbsp&nbsp&nbsp<span class="text-success">@ Follow me on Facebook</span>
+            </div>
+            <div class="col-md-4 col-md-offset-1 shadedback">
+              <img src="images/git.png">&nbsp&nbsp&nbsp&nbsp<span class="text-success">@ Connect On Github</span>
+            </div>
+            <div class="col-md-3 shadedback">
+              <img src="images/in.jpeg">&nbsp&nbsp&nbsp&nbsp<span class="text-success">@ Connect On LinkedIn</span>
+            </div>
+          </div>
+        </footer>
+</div>
+
+<div class="modal fade" id="ContactMeModal" tabindex="-1" role="dialog" aria-labelledby="ContactMeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h3 class="modal-title text-primary" id="ContactMeModalLabel">Contact Sukhdeep</h3>
+      </div>
+      <div class="modal-body">
+       <div class="container">
+          <div class="row">
+            <div class="col-xs-4">
+                <label class="text-primary">Name</label>
+                <input type="text" placeholder="Please enter your Name" class="form-control">
+            </div>
+          </div>
+          <br>
+          <div class="row">
+             <div class="col-xs-4">
+                <label class="label-control text-primary">Email</label>
+                <input type="email" placeholder="Please enter your Name" class="form-control">
+            </div>
+          </div>
+          <br>
+          <div class="row">
+             <div class="col-xs-5">
+                <label class="label-control text-primary">Message</label>
+                <textarea class="form-control" rows="6" id="message"></textarea>
+            </div>
+          </div>
+      </div>
+      <br>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send</button>
+      </div>
+     </div>
+   </div>
+  </div>
+</div>

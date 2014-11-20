@@ -8,7 +8,6 @@ myWeb.controller('NavbarController',function($scope){
 
 	{'name':'Profile', 'url':'#/profile'},
 	{'name':'Projects', 'url':'#/projects'},
-	{'name':'Contact', 'url':'#/contact'}
 	];
 
 	$scope.websiteHeader = "Sukhdeep Singh Saini";
@@ -73,6 +72,15 @@ myWeb.controller('RecipeDetailCtrl',function($scope, $routeParams,$http) {
     	$scope.rating = data.rating;
     	$scope.prepratationTime = data.totalTime;
     	$scope.course = data.attributes.course[0];
+        if($scope.course === undefined || $scope.course === null)
+        {
+            $scope.course = "Not Known";
+        }
+        $scope.cuisine = data.attributes.cuisine[0]; //handle cases when cuisine and course value is null
+        if($scope.course === undefined || $scope.course === null)
+        {
+            $scope.cuisine = "Not Known";
+        }
         $scope.recipeSourceUrl = data.source.sourceRecipeUrl;
         console.log($scope.recipeSourceUrl);
     	console.log(data.images[0].hostedLargeUrl);
