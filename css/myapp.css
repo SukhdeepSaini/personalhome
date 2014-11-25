@@ -25,3 +25,9 @@ ol
 {
 	display: inline-block;
 }
+
+#profileContainer
+{
+	background-color: whitesmoke;
+	margin-top: 2%;
+}
