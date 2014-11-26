@@ -24,4 +24,13 @@ footer img
 ol
 {
 	display: inline-block;
+<<<<<<< HEAD
+=======
+}
+
+#profileContainer
+{
+	background-color: whitesmoke;
+	margin-top: 2%;
+>>>>>>> gh-pages
 }
