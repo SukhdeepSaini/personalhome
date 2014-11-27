@@ -29,6 +29,12 @@ myWeb.config(['$routeProvider',function ($routeProvider){
 			templateUrl:'profile.html'
 
 		})
+		.when('/profile/prototype1',
+		{
+			controller: 'NavbarController',
+			templateUrl:'prototype1.html'
+
+		})
 		.when('/projects',
 		{
 			controller: 'ProjectsController',

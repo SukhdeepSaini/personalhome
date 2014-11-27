@@ -31,3 +31,14 @@ ol
 	background-color: whitesmoke;
 	margin-top: 2%;
 }
+
+#MyCarousel,
+#MyCarousel .item,
+#MyCarousel .item img 
+{
+  height: 100%;
+}
+#MyCarousel .item img
+{
+  width: 100%;
+}

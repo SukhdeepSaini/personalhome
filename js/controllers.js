@@ -9,6 +9,13 @@ myWeb.controller('NavbarController',function($scope){
 	$scope.websiteHeader = "Sukhdeep Singh Saini";
 	$scope.websiteTitle = "Software Developer";
 
+    $('.carousel').carousel({
+        interval: 2000
+    });
+
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    });
 });
 
 //handle backward navigation
