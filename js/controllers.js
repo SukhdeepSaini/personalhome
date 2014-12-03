@@ -13,9 +13,34 @@ myWeb.controller('NavbarController',function($scope){
         interval: 2000
     });
 
+
+    $scope.interests = "Engineering - Software Developer \n Engineering - Software Testing";
+
     $(function () {
         $('[data-toggle="popover"]').popover()
     });
+
+    // var popoverTemplate = ['<div class="timePickerWrapper popover">',
+    //     '<div class="arrow"></div>',
+    //     '<div class="popover-content">',
+    //     '</div>',
+    //     '</div>'].join('');
+
+    // var content = ['<div class="timePickerCanvas">asfaf asfsadf</div>',
+    //     '<div class="timePickerClock timePickerHours">asdf asdfasf</div>',
+    //     '<div class="timePickerClock timePickerMinutes"> asfa </div>', ].join('');
+
+
+
+    // $(function(){
+    //     $('#testPopover').popover({selector: '[rel=popover]',
+    //     trigger: 'click',
+    //     content: content,
+    //     template: popoverTemplate,
+    //     placement: "top",
+    //     html: true});
+    // });
+
 });
 
 //handle backward navigation
