@@ -43,11 +43,71 @@ myWeb.controller('NavbarController',function($scope){
 
 });
 
+
+function ProjectDescriptionDisplay(ID)
+{
+    var $btn2 = $(ID);
+    $btn2.data('state', 'hover');
+
+    var enterShow = function () {
+        if ($btn2.data('state') === 'hover') {
+            $btn2.popover('show');
+        }
+    };
+    var exitHide = function () {
+        if ($btn2.data('state') === 'hover') {
+            $btn2.popover('hide');
+        }
+    };
+
+    var clickToggle = function () {
+        if ($btn2.data('state') === 'hover') {
+            $btn2.data('state', 'pinned');
+        } else {
+            $btn2.data('state', 'hover')
+            $btn.popover('hover');
+        }
+    };
+
+    $btn2.popover({trigger: 'manual'})
+        .on('mouseenter', enterShow)
+        .on('mouseleave', exitHide)
+        .on('click', clickToggle);
+
+}
+
 //handle backward navigation
 myWeb.controller('ProjectsController',function($scope,$http){
 
-    $scope.projectHeader = "Projects";
+    var recipeDesId = "#recipeProject";
+    var punjabipower = "#punjabipower";
+    var webexp = "#webexp";
 
+    var recipeAppDetails = "Recipe Web Search App enable you to search for food recipes" +
+                            " based on recipe name, ingredients " +
+                             "and displays the top 10 matching results. An image, ingredients and other relevant information "+
+                              "will be provided. Full complete descriton can be viewed by navigating to the " +
+                              "link provided on recipe details page.";
+
+    var punjabiPowerDetails = "Punjabi Power Pack is a health and fitness website and contains" +
+                              " all the information needed starting from excercises,food recipes," +
+                             "motivational videos,buying dietery supplements and reading fitness articles. "+
+                              "Feel free to explore. ";
+
+
+    var webexpDetails = " These are the experiments which I have been doing to learn" +
+                         " more about web technologies. Includes experiments on " +
+                         "javascript, jquery, ASP.NET, Rest and SOAP webservices, BootStrap, responsive CSS. Feel free to explore";
+
+    ProjectDescriptionDisplay(recipeDesId);
+    ProjectDescriptionDisplay(punjabipower);
+    ProjectDescriptionDisplay(webexp);
+
+    $scope.projectHeader = "Projects";
+    $scope.recipetooltip = recipeAppDetails;
+    $scope.punjabipowertip = punjabiPowerDetails;
+    $scope.webexptooltip = webexpDetails;
+    
     $scope.GetRecipeData = function()
     {
         var searhCriteria = $("#recipeSeachText").val();
