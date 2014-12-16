@@ -1,0 +1,32 @@
+
+<div class="jumbotron">
+	<h1 class="text-info">Instagram Feed</h1>
+
+	<div class="row">
+		<div class="col-md-3">
+			<select class="form-control" id="instaselector" ng-model="instaselect" ng-change="itemselected(instaselect)">
+ 				 <option value="popular">Popular</option>
+ 				 <option value="Tagged">Tagged</option>
+			</select>
+		</div>
+		<div class="col-md-3">
+			<input id= "instatags" type="text" class="form-control" placeholder="Search Tagged Images" ng-model="instatag" ng-disabled="disablethis">
+		</div>
+		<div class="col-md-3">
+			<button class="btn btn-success" ng-click="getfeed()" ng-disabled="disablethis">Get Insta Feed</button>
+		</div>
+	</div>
+</div>
+
+	<ol class="breadcrumb">
+		 <li><a href="http://sukhdeepsaini.github.io/personalhome/#/">Home</a></li>
+		 <li><a href="#/projects">Projects</a></li>
+		 <li class="active">Instagram Search</li>
+	</ol>
+
+<div class="container">
+	<div class="row">
+		<div id="instafeed" class="col-md-10 col-md-offset-1">
+		</div> 
+	</div>
+</div>

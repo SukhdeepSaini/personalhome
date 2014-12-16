@@ -59,6 +59,12 @@ myWeb.config(['$routeProvider',function ($routeProvider){
             templateUrl:'recipes.html'
 
         })
+        .when('/Instafeed',
+        {
+            controller: 'InstaCtrl',
+            templateUrl:'Instagram.html'
+
+        })
 		.otherwise({redirectTo:'/'});
 
 

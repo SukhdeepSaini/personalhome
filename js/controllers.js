@@ -20,27 +20,27 @@ myWeb.controller('NavbarController',function($scope){
         $('[data-toggle="popover"]').popover()
     });
 
-    // var popoverTemplate = ['<div class="timePickerWrapper popover">',
-    //     '<div class="arrow"></div>',
-    //     '<div class="popover-content">',
-    //     '</div>',
-    //     '</div>'].join('');
+//Send mail from Client Side
+    $scope.sendmail =  function()
+    {
+    /*   console.log("Test");
+        var contacingName = $('#contactingname').value;
+        var contactingEmail = $('#contactingemail').value;
+        var message = $('#message').value;
 
-    // var content = ['<div class="timePickerCanvas">asfaf asfsadf</div>',
-    //     '<div class="timePickerClock timePickerHours">asdf asdfasf</div>',
-    //     '<div class="timePickerClock timePickerMinutes"> asfa </div>', ].join('');
+        var link = "mailto:me@example.com"
+             + "?cc=myCCaddress@example.com"
+             + "&subject=" + escape("This is my subject")
+             + "&body=" + escape(document.getElementById('message').value)
+        
 
+        window.location.href = link;
+    */
+        $('#ContactMeModal').modal('hide');
+        console.log("Mail Send");
+    };
 
-
-    // $(function(){
-    //     $('#testPopover').popover({selector: '[rel=popover]',
-    //     trigger: 'click',
-    //     content: content,
-    //     template: popoverTemplate,
-    //     placement: "top",
-    //     html: true});
-    // });
-
+    
 });
 
 
@@ -82,6 +82,7 @@ myWeb.controller('ProjectsController',function($scope,$http){
     var recipeDesId = "#recipeProject";
     var punjabipower = "#punjabipower";
     var webexp = "#webexp";
+    var instagramproject = "#instagramproject";
 
     var recipeAppDetails = "Recipe Web Search App enable you to search for food recipes" +
                             " based on recipe name, ingredients " +
@@ -99,14 +100,21 @@ myWeb.controller('ProjectsController',function($scope,$http){
                          " more about web technologies. Includes experiments on " +
                          "javascript, jquery, ASP.NET, Rest and SOAP webservices, BootStrap, responsive CSS. Feel free to explore";
 
+
+    var instagramDetails = "Currently experiment with Instagram API to build an Application using " +
+                            "Instagram Authentication where users can search for popular images and "+
+                            "tagged images and can also download there own images from there account";
+
     ProjectDescriptionDisplay(recipeDesId);
     ProjectDescriptionDisplay(punjabipower);
     ProjectDescriptionDisplay(webexp);
+    ProjectDescriptionDisplay(instagramproject);
 
     $scope.projectHeader = "Projects";
     $scope.recipetooltip = recipeAppDetails;
     $scope.punjabipowertip = punjabiPowerDetails;
     $scope.webexptooltip = webexpDetails;
+    $scope.instagramtip = instagramDetails;
     
     $scope.GetRecipeData = function()
     {
@@ -183,3 +191,65 @@ myWeb.controller('RecipeDetailCtrl',function($scope, $routeParams,$http) {
     	}
     });
   });
+
+
+function GetFeed(tag)
+{
+    var feed = "";
+    document.getElementById("instafeed").innerHTML = "";
+    console.log(tag);
+    if(tag == "popular")
+    {
+         feed = new Instafeed({
+                get: 'popular',
+                limit: "21",
+                clientId: '51ca7b64a091467ea749c0fdc407efb7',
+                resolution: "low_resolution",
+                template: '<a href="{{link}}" target="_blank"><img src="{{image}}" /></a>'
+            }); 
+    }
+    else
+    {
+        feed = new Instafeed({
+                get: 'tagged',
+                tagName: tag,
+                limit: "21",
+                clientId: '51ca7b64a091467ea749c0fdc407efb7',
+                resolution: "low_resolution",
+                template:'<a href="{{link}}" target="_blank"><img src="{{image}}" /></a>'
+            });  
+    }
+
+    feed.run();    
+}
+
+myWeb.controller('InstaCtrl',function($scope){
+
+        $scope.disablethis = true;
+        $scope.itemselected =  function(item)
+        {   
+            if(item == "Tagged")
+            {
+                $scope.disablethis = false;
+            }
+            else
+            {
+                console.log(item);
+                GetFeed(item);
+            }
+        };
+
+        $scope.getfeed = function()
+        { 
+            var tagtosearch = $scope.instatag;
+            GetFeed(tagtosearch);
+        };
+});
+
+
+
+
+
+
+
+

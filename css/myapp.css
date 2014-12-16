@@ -47,3 +47,16 @@ ol
 {
 	margin-top: 15px;
 }
+
+#instafeed img
+{	
+	padding: 4px;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+}
+
+#instafeed img:hover
+{
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
