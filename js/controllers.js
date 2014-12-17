@@ -197,6 +197,7 @@ function GetFeed(tag)
 {
     var feed = "";
     document.getElementById("instafeed").innerHTML = "";
+    var loadButton = document.getElementById('load-more');
     console.log(tag);
     if(tag == "popular")
     {
@@ -206,6 +207,7 @@ function GetFeed(tag)
                 clientId: '51ca7b64a091467ea749c0fdc407efb7',
                 resolution: "low_resolution",
                 template: '<a href="{{link}}" target="_blank"><img src="{{image}}" /></a>'
+
             }); 
     }
     else
@@ -216,10 +218,19 @@ function GetFeed(tag)
                 limit: "21",
                 clientId: '51ca7b64a091467ea749c0fdc407efb7',
                 resolution: "low_resolution",
+                after: function() {
+                 // disable button if no more results to load
+                     if (!this.hasNext()) {
+                        loadButton.setAttribute('disabled', 'disabled');
+                     }
+                 },
                 template:'<a href="{{link}}" target="_blank"><img src="{{image}}" /></a>'
             });  
     }
 
+    loadButton.addEventListener('click', function() {
+                                    feed.next();
+                                });
     feed.run();    
 }
 
@@ -234,7 +245,8 @@ myWeb.controller('InstaCtrl',function($scope){
             }
             else
             {
-                console.log(item);
+                $scope.disablethis = true;
+                $scope.instatag = "";
                 GetFeed(item);
             }
         };
