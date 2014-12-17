@@ -256,6 +256,12 @@ myWeb.controller('InstaCtrl',function($scope){
             var tagtosearch = $scope.instatag;
             GetFeed(tagtosearch);
         };
+
+        var REDIRECT_URL = "http://sukhdeepsaini.github.io/personalhome/#/Instafeed";
+        var clientId = "51ca7b64a091467ea749c0fdc407efb7";
+
+        $scope.instalogin = "https://api.instagram.com/oauth/authorize/?client_id="+ clientId +
+                            "&redirect_uri="+ REDIRECT_URL +"&response_type=code";
 });
 
 
