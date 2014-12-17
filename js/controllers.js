@@ -257,7 +257,7 @@ myWeb.controller('InstaCtrl',function($scope){
             GetFeed(tagtosearch);
         };
 
-        var REDIRECT_URL = "http://sukhdeepsaini.github.io/personalhome/#/Instafeed";
+        var REDIRECT_URL = "http://sukhdeepsaini.github.io/personalhome/#/";
         var clientId = "51ca7b64a091467ea749c0fdc407efb7";
 
         $scope.instalogin = "https://api.instagram.com/oauth/authorize/?client_id="+ clientId +
